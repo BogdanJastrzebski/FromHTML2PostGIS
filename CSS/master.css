@@ -1,0 +1,39 @@
+h1{
+  color:rgb(30,30,30);
+  margin: 0 auto;
+  width: 500px;
+  padding: 40px
+}
+
+body{
+  background-color:#f4f4f4;
+  color:rgb(30,30,30);
+  font-family: Consolas;
+  font-size:24px;
+  font-weight: normal;
+  line-height: 1.6em;
+  margin:0;
+}
+
+form{
+  margin: 0 auto;
+  width: 500px;
+}
+
+form .form-group {
+  padding-bottom: 15px;
+}
+
+form label {
+  display: block;
+}
+
+form input[type="text"], form textarea {
+  padding:8px;
+  width:100%;
+}
+
+form input[type="submit"]{
+  background-color: #333;
+  color: #fff
+}

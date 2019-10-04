@@ -1,2 +1,3 @@
 # FromHTML2PostGIS
- in the title
+
+To jest repo do przedmiotu "Od HTML'a do PostGIS'a"
