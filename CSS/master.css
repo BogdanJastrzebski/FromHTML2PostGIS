@@ -42,6 +42,6 @@ form input[type="submit"]{
 }
 select {
   position: absolute;
-  right: 560px;
-  top: 358px;
+  right: 30%;
+  top: 37.5%;
 }
