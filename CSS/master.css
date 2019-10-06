@@ -2,7 +2,7 @@ h1{
   color:rgb(30,30,30);
   margin: 0 auto;
   width: 500px;
-  padding: 40px
+  padding: 40px;
 }
 
 body{
@@ -36,5 +36,10 @@ form input[type="text"], form textarea {
 form input[type="submit"]{
   background-color: #333;
   color: #fff;
-  padding: 20px
+  padding: 20px;
+}
+select .waluta{
+  position: relative;
+  right: -1000px;
+  top: -1000px;
 }
