@@ -35,5 +35,6 @@ form input[type="text"], form textarea {
 
 form input[type="submit"]{
   background-color: #333;
-  color: #fff
+  color: #fff;
+  padding: 20px
 }
