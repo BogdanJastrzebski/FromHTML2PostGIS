@@ -1,17 +1,18 @@
 h1{
   color:rgb(30,30,30);
   margin: 0 auto;
-  width: 500px;
-  padding: 40px;
+  padding: 1em;
 }
 
 body{
+  display: grid;
+  grid-template: 1fr;
+  justify-content: center;
+
   background-color:#f4f4f4;
   color:rgb(30,30,30);
-  font-family: Consolas;
+  font-family: Arial;
   font-size:24px;
-  font-weight: normal;
-  line-height: 1.6em;
   margin:0;
 }
 
@@ -20,28 +21,48 @@ form{
   width: 500px;
 }
 
-form .form-group {
-  padding-bottom: 15px;
+form > div {
+  display: grid;
+  padding: 0.5em;
+  justify-content: stretch;
 }
 
 form label {
-  display: block;
+  display: grid;
 }
 
 form input[type="text"], form textarea {
-  padding:8px;
+  padding:0.5em;
   width:100%;
+  height:2em;
 }
 
 form input[type="submit"]{
   background-color: #333;
   color: #fff;
-  padding: 20px;
-  font-size: 24px;
-  font-family: Consolas;
+  padding: 1em;
+  font-size: 1em;
+  align-self: start;
+  width:30%;
 }
+
+textarea {
+  resize: vertical;
+}
+
+.kwotawaluta {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  grid-gap:1em;
+  justify-items:stretch;
+  align-items:stretch;
+}
+
 select {
-  position: absolute;
-  right: 30%;
-  top: 37.5%;
+  width:100%;
+  height:3.32em;
+  background-color: #333;
+  color: #fff;
+  width:120%;
+  text-align: center;
 }
