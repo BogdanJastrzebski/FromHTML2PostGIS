@@ -1,0 +1,50 @@
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 1em;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+}
+
+p {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 1em;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+form {
+  margin: 1em;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.grid-container > div {
+  display: grid;
+  justify-content: stretch;
+}
+
+textarea {
+  resize: vertical;
+}
+
+@media (max-width: 1080px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+
+  }
+  form {
+    width: 20em;
+  }
+  .my-form {
+    display: grid;
+    grid-row: 1/2;
+    justify-content: center;
+  }
+}
