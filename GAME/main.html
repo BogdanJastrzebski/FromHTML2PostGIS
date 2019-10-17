@@ -3,11 +3,10 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
+
 canvas {
     border: 1px solid #d3d3d3;
     background-color: #f1f1f1;
-    height:100%;
-    width:100%;
     position:fixed;
     left:0;
     top:0;
@@ -18,6 +17,7 @@ canvas {
 <script>
 
 var myGamePiece;
+var text;
 
 function startGame() {
    myGameArea.start();
@@ -27,33 +27,44 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        //this.canvas.width = 480;
-        //this.canvas.height = 270;
+        this.canvas.width = 480;
+        this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
+	//this.canvas.style.cursor = "none";
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 	this.interval = setInterval(updateGameArea, 20);
+	window.addEventListener('click', function (e) {
+            myGameArea.x = e.pageX;
+            myGameArea.y = e.pageY;
+	    text = myGameArea.context;    
+	text.fillText("click at"+myGameArea.x+" "+myGameArea.y, 50, 50);
+        })
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
 
-function component(width, height, color, x, y) {
+function component(width, height, color, x, y, type) {
     this.width = width;
     this.height = height;
     this.x = x;
     this.y = y;    
     this.update = function(){
-        ctx = myGameArea.context;
+	if(this.type=="text"){}else{        
+	ctx = myGameArea.context;
         ctx.fillStyle = color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
+    }}
 }
 
 function updateGameArea() {
     myGameArea.clear();
-    myGamePiece.x+=1;
+    //myGamePiece.x=myGameArea.x;
+    //myGamePiece.y=myGameArea.y;
     myGamePiece.update();
+	text = myGameArea.context;    
+	text.fillText("click at"+myGameArea.x+" "+myGameArea.y, 50, 50);
 }
 
 </script>
