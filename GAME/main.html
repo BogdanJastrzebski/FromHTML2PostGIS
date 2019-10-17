@@ -11,9 +11,13 @@ canvas {
 </head>
 <body onload="startGame()">
 <script>
+var ctx;
 
 function startGame() {
     myGameArea.start();
+ctx=myGameArea.context;
+ctx.fillStyle= "red";
+ctx.fillRect(0,0,40,40);
 }
 
 var myGameArea = {
@@ -25,6 +29,8 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     }
 }
+
+
 
 </script>
 
