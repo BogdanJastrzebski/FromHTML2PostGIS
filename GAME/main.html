@@ -18,17 +18,23 @@ canvas {
 
 var myGamePiece;
 var text;
+var canvaWidth=680;
+var canvaHeight=370;
+var myScore=-1;
+var score;
 
 function startGame() {
    myGameArea.start();
+   myGameArea.x=1;
+   myGameArea.y=1;
    myGamePiece=new component(40,40,"red",0,0); 
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
+        this.canvas.width = canvaWidth;
+        this.canvas.height = canvaHeight;
         this.context = this.canvas.getContext("2d");
 	//this.canvas.style.cursor = "none";
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
@@ -36,35 +42,46 @@ var myGameArea = {
 	window.addEventListener('click', function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
-	    text = myGameArea.context;    
-	text.fillText("click at"+myGameArea.x+" "+myGameArea.y, 50, 50);
-        })
+	    
+	})
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
 
-function component(width, height, color, x, y, type) {
+function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
     this.x = x;
     this.y = y;    
     this.update = function(){
-	if(this.type=="text"){}else{        
 	ctx = myGameArea.context;
         ctx.fillStyle = color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
-    }}
+    },
+    this.clicked = function(xc,yc){
+	if(this.x<xc && this.x+this.width>xc && this.y<yc && this.y+this.height>yc){
+	this.x=Math.floor(Math.random()*(canvaWidth-40));
+	this.y=Math.floor(Math.random()*(canvaHeight-40));
+	myScore+=1;
+	}
+    }
+    //TO DO
+    //this.newPosition= function(){}
 }
+
+
 
 function updateGameArea() {
     myGameArea.clear();
-    //myGamePiece.x=myGameArea.x;
-    //myGamePiece.y=myGameArea.y;
+    myGamePiece.clicked(myGameArea.x,myGameArea.y);
     myGamePiece.update();
-	text = myGameArea.context;    
-	text.fillText("click at"+myGameArea.x+" "+myGameArea.y, 50, 50);
+    //text = myGameArea.context;    
+    //text.fillText("click at "+myGameArea.x+" "+myGameArea.y+" is clicked "+(myGamePiece.x<myGameArea.x && myGamePiece.x+myGamePiece.width>myGameArea.x && myGamePiece.y<myGameArea.y && myGamePiece.y+myGamePiece.height>myGameArea.y), 50, 50);
+	score=myGameArea.context;  
+	score.font = "30px Arial";
+	score.fillText("SCORE: "+myScore, 10, 50); 
 }
 
 </script>
