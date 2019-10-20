@@ -7,7 +7,7 @@
 canvas {
     border: 1px solid #d3d3d3;
     background-color: #f1f1f1;
-    position:fixed;
+    position: fixed;
     left:0;
     top:0;
 }
@@ -27,7 +27,7 @@ function startGame() {
    myGameArea.start();
    myGameArea.x=1;
    myGameArea.y=1;
-   myGamePiece=new component(40,40,"red",0,0); 
+   myGamePiece=new component(40,40,"red",0,0);
 }
 
 var myGameArea = {
@@ -42,7 +42,7 @@ var myGameArea = {
 	window.addEventListener('click', function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
-	    
+
 	})
     },
     clear : function() {
@@ -54,7 +54,7 @@ function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
     this.x = x;
-    this.y = y;    
+    this.y = y;
     this.update = function(){
 	ctx = myGameArea.context;
         ctx.fillStyle = color;
@@ -77,11 +77,11 @@ function updateGameArea() {
     myGameArea.clear();
     myGamePiece.clicked(myGameArea.x,myGameArea.y);
     myGamePiece.update();
-    //text = myGameArea.context;    
+    //text = myGameArea.context;
     //text.fillText("click at "+myGameArea.x+" "+myGameArea.y+" is clicked "+(myGamePiece.x<myGameArea.x && myGamePiece.x+myGamePiece.width>myGameArea.x && myGamePiece.y<myGameArea.y && myGamePiece.y+myGamePiece.height>myGameArea.y), 50, 50);
-	score=myGameArea.context;  
+	score=myGameArea.context;
 	score.font = "30px Arial";
-	score.fillText("SCORE: "+myScore, 10, 50); 
+	score.fillText("SCORE: "+myScore, 10, 50);
 }
 
 </script>

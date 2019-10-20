@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      document.write(4 + 3, "<br />");
+      document.write(4 + 3 + "<br />");
+
+      var randnum = 5;
+
+      document.write(randnum++, "<br />");
+      document.write(++randnum, "<br />");
+
+      document.write(Math.floor(Math.random() * 10 + 1), "<br />")
+      document.write(Math.random(), "<br />");
+      document.write(Math.random(), "<br />");
+      document.write(Math.random(), "<br />");
+      document.write(Math.random(), "<br />");
+      document.write(Math.random(), "<br />");
+
+      var sum = 0;
+      for(i = 0; i < 10000; i++) {
+        sum += Math.random();
+      };
+
+      document.write(sum/10000);
+
+      // strings
+
+      var randStr = "A long " + "string that " + "goes on and on... ";
+      document.write(randStr.length, "<br />")
+
+      document.write(randStr.indexOf("goes"), "<br />")
+
+      document.write(randStr.slice(19, 23), "<br />")
+
+      document.write(randStr.slice(19), "<br />")
+
+      document.write(randStr.substr(19, 4), "<br />")
+
+      document.write(randStr.replace("and on", "forever"), "<br />")
+
+      document.write(randStr.charAt(3), "<br />")
+
+      var randStrArray = randStr.split(" ");
+
+      randStr = randStr.trim()
+
+      document.write(randStr.toUpperCase() + "<br />")
+
+    </script>
+  </body>
+</html>
