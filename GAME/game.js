@@ -372,12 +372,12 @@ function drawBackground(world, c) {
 
 // foreground
 function drawForeground(world, c) {
+    //bushes
+    world.bushes.forEach(bush => bush.y > skyratio*innerHeight ? bush.draw(c) : null);
+    //particles
     world.particles.forEach(particle => particle.move());
     world.particles.forEach(particle => particle.collideBorders());
     world.particles.forEach(particle => particle.draw(c));
-
-    //bushes
-    world.bushes.forEach(bush => bush.y > skyratio*innerHeight ? bush.draw(c) : null);
 }
 
 console.log(world);
