@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <table id="myTable" style="width:100%">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+    </table>
+    <script type="text/javascript">
+      var x = document.getElementById("myTable")
+      // console.log(x)
+      // console.log(x.rows)
+      // console.log(x.tBodies)
+      // console.log(x.rows.length)
+      x.deleteRow(0)
+      x.insertRow()
+      // for(i=0; i<x.rows.length; i++){
+      //     console.log(x.rows[i])
+      // }
+
+      var table = document.createElement("TABLE")
+      table.createCaption()
+      table.createTFoot()
+      table.createTHead()
+      // for(var key in x.rows[1].cells[1]) {
+      //   console.log(key)
+      // }
+      // console.log(x.rows[1].cells[1].innerText)
+      x.rows[1].cells[1].innerText = "Watson"
+      console.log(x.rows[1].cells)
+      x.rows[1].insertCell()
+      x.rows[1].insertCell()
+      x.rows[1].insertCell()
+      var newcell = x.rows[1].insertCell()
+      newcell.innerText = "asdfasdfasdfsdf"
+      x.rows[0].insertCell(1)
+      x.rows[0].cells[1].innerText = "asdfasdfasdfsdf"
+      // console.log(table)
+
+      x.rows[0].cells[1].onclick = function() {
+        console.log("Click!!!")
+      }
+
+      x.rows[1].onmouseover = function() {
+        console.log("fuck off!!!")
+      }
+
+      x.rows[1].onmouseout = _ => console.log("Thanks")
+
+      x.rows[0].cells[0].addEventListener('click', _ => alert("Do not click me, thank you."))
+
+      var mouse = {
+        x: 0,
+        y: 0
+      }
+
+      window.addEventListener('mousemove', function(event) {
+          mouse.x = event.pageX;
+          mouse.y = event.pageY;
+      })
+
+      function animate() {
+        window.requestAnimationFrame(animate)
+        console.log(mouse)
+      }
+
+      var canvas = document.getElementById('canvas')
+      var c = canvas.getContext('2d')
+      c.beginPath()
+      c.fillStyle = 'black'
+      c.fillRect(0,0, window.innerWidth, window.innerHeight)
+
+      var x = 0;
+          y = 0;
+          t = 0;
+          r = 1;
+      c.beginPath()
+      c.strokeStyle = 'white'
+      c.moveTo(innerWidth/4,innerHeight/4)
+
+      c.beginPath()
+      c.arc(innerWidth/4,innerHeight/8,5,0,2*Math.PI)
+      c.fillStyle = 'white'
+      c.fill()
+
+      c.beginPath()
+
+      for(i=0;i<100;i++){
+        t += Math.PI/30
+        r += 2
+        x = innerWidth/4 + r*Math.cos(t)
+        y = innerHeight/8 + r*Math.sin(t)
+        c.lineTo(x,y)
+      }
+      c.stroke()
+
+      console.log(c)
+
+      animate()
+    </script>
+  </body>
+</html>
