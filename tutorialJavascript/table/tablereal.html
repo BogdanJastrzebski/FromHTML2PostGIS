@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>table real</title>
+  </head>
+  <body>
+    <table id="clients"></table>
+    <form id="insertrow">
+      <label>Name</label>
+      <input type="text" id="inputname" name="name" value="" placeholder="Enter your name">
+      <label>Surname</label>
+      <input type="text" id="inputsurname" name="surname" value="" placeholder="Enter your surname">
+      <label>Amount</label>
+      <input type="number" id="inputamount" name="amount" value="10" placeholder="Enter amount">
+      <input type="button" id="insertbutton" name="submit" value="Submit">
+      <input type="button" id="deletebutton" name="submit" value="Delete">
+    </form>
+    <script type="text/javascript">
+
+      function setupTable() {
+        var table = document.getElementById("clients")
+        table.insertRow()
+        var name    = table.rows[0].insertCell(),
+            surname = table.rows[0].insertCell(),
+            amount  = table.rows[0].insertCell();
+
+        name.innerText = "Name"
+        surname.innerText = "Surname"
+        amount.innerText = "Amount"
+
+        return table
+      }
+
+      var table = setupTable()
+
+      document.getElementById('insertbutton').addEventListener("click", function() {
+        var newrow = table.insertRow(table.length),
+            name = newrow.insertCell(),
+            surname = newrow.insertCell(),
+            amount = newrow.insertCell();
+
+        name.innerHTML = document.getElementById('inputname').value
+        surname.innerHTML = document.getElementById('inputsurname').value
+        amount.innerHTML = document.getElementById('inputamount').value
+
+        newrow.addEventListener("click", function() {
+            selectedRow = this.rowIndex
+            var els = selectedRow.getElementsByTagName("td")
+            els.forEach(function() {e.style.background = 'gray';})
+            console.log(selectedRow)
+        })
+
+        document.getElementById('insertrow').reset()
+      })
+
+      var selectedRow = -1;
+
+      document.getElementById("deletebutton").addEventListener("click", function() {
+          if(selectedRow > 0) {
+            table.deleteRow(selectedRow)
+          }
+          selectedRow = -1;
+      })
+
+    </script>
+  </body>
+</html>
