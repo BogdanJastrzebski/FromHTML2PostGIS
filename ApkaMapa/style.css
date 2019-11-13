@@ -1,0 +1,32 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 300px auto 350px;
+  height: 100%;
+}
+
+.formcontainer {
+  padding: 2em;
+}
+
+.formelem {
+  margin: 1em;
+}
+
+.tablecontainer {
+  padding: 2em;
+}
+
+input#submitbtn, input#delbutton {
+  color: white;
+  background-color: gray;
+  border: gray;
+}

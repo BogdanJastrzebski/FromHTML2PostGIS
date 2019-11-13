@@ -65,7 +65,7 @@ function UFO(x,y) {
 
         c.beginPath();
         c.arc(this.x, this.y + this.size/10, this.size/2, 0, Math.PI);
-        c.fillStyle = c1
+        c.fillStyle = c1;
         c.fill();
 
         c.beginPath();

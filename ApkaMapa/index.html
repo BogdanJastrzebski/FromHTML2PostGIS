@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wprowadzanie paczek</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
+   <script
+      src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin=""></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+  </head>
+  <body>
+    <div class="formcontainer">
+      <form id="addPackage">
+        <legend><h1>Nowa przesyłka</h1></legend>
+        <div class="formelem">
+          <label for="number">Numer przesyłki</label><br>
+          <input id="number" type="number" placeholder="Wpisz numer przesyłki">
+        </div>
+        <div class="formelem">
+          <label for="name">Nazwa odbiorcy</label><br>
+          <input id="name" type="text" placeholder="Wpisz nazwę odbiorcy">
+        </div>
+        <div class="formelem">
+          <label for="mass">Rozmiar paczki</label><br>
+          <input id="mass" type="number" placeholder="Masa paczki w kg">
+        </div>
+        <div class="formelem">
+          <label for="location">Lokalizacja</label>
+          <div id=location>Szerokość: ?<br> Długość: ?</div>
+        </div>
+        <div class="formelem">
+        <input type="button" id="submitbtn" value="Wprowadź">
+      </div>
+      </form>
+    </div>
+
+    <div class="mapcontainer">
+      <div id="map"></div>
+    </div>
+
+    <div class="tablecontainer">
+      <h1>Nadane przesyłki</h1>
+      <input id="number2delete" type="number" >
+      <input id="delbutton" type="button" value="Usuń">
+
+      <table id="packages">
+      </table>
+    </div>
+
+    <script src="script.js" charset="utf-8"></script>
+  </body>
+</html>
