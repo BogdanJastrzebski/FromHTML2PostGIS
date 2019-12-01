@@ -1,4 +1,4 @@
-(function () {
+$(function () {
     var postPoint = function () {
         var exampleString=$('#exampleStringInput').val();
         var exampleDate=$('#exampleDateInput').val();

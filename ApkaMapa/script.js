@@ -70,7 +70,6 @@ function deleteFromTable(number){
 
 document.getElementById('submitbtn').addEventListener('click', function() {
 	postToATable(
-		document.getElementById('number').value,
 		document.getElementById('name').value,
 		document.getElementById('mass').value,
 		lat,

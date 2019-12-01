@@ -21,16 +21,12 @@
       <form id="addPackage">
         <legend><h1>Nowa przesyłka</h1></legend>
         <div class="formelem">
-          <label for="number">Numer przesyłki</label><br>
-          <input id="number" type="number" placeholder="Wpisz numer przesyłki">
-        </div>
-        <div class="formelem">
           <label for="name">Nazwa odbiorcy</label><br>
           <input id="name" type="text" placeholder="Wpisz nazwę odbiorcy">
         </div>
         <div class="formelem">
-          <label for="mass">Rozmiar paczki</label><br>
-          <input id="mass" type="number" placeholder="Masa paczki w kg">
+          <label for="size">Rozmiar paczki</label><br>
+          <input id="size" type="number" placeholder="Masa paczki w kg">
         </div>
         <div class="formelem">
           <label for="location">Lokalizacja</label>
@@ -40,6 +36,21 @@
         <input type="button" id="submitbtn" value="Wprowadź">
       </div>
       </form>
+
+      <hr>
+
+      <form id="findPath">
+        <legend><h1>Znajdź trasę</h1></legend>
+        <div class="formelem">
+          <div id='mylocation'>
+            Szerokość: ?<br> Długość: ?
+          </div>
+        </div>
+        <div class="formelem">
+          <input type="button" id="findPathBtn" value="Znajdź trasę">
+        </div>
+      </form>
+
     </div>
 
     <div class="mapcontainer">
@@ -55,6 +66,6 @@
       </table>
     </div>
 
-    <script src="script.js" charset="utf-8"></script>
+    <script src="client.js" charset="utf-8"></script>
   </body>
 </html>

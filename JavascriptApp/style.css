@@ -25,7 +25,7 @@ body {
   padding: 2em;
 }
 
-input#submitbtn, input#delbutton {
+input#submitbtn, input#delbutton, input#findPathBtn {
   color: white;
   background-color: gray;
   border: gray;
