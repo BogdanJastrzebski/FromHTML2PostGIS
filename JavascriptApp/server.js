@@ -18,6 +18,7 @@ var packages = new DataFrame([],
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
+app.use(express.static(__dirname))
 
 //Server
 var server = app.listen(8080, function() {
@@ -30,6 +31,10 @@ var server = app.listen(8080, function() {
 // # Routing
 
 // GET
+app.get('/', function(req, res) {
+  res.sendFile('/index.html')
+})
+
 app.get('/api/packages/', function(req, res) {
   console.log('Sending packages... ')
   if (req.query.method == 'findPath') {
@@ -65,7 +70,6 @@ app.post('/api/packages/',
     check('lng').isNumeric()
   ],
   function(req, res) {
-    console.log(req.body)
     // Error handling
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -110,7 +114,6 @@ app.put('/api/packages/:id',
     // Validation
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
-      console.log(errors.array())
       return res.status(422).json({errors: errors.array()})
     }
 
